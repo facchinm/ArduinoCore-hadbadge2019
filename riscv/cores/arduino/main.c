@@ -414,7 +414,7 @@ int show_main_menu(char *app_name, int *ret_flags) {
 				usb_msc_off();
 				read_menu_items(&menu);
 				fprintf(console, "\0330M\033C\0330A"); //Set map to tilemap A, clear tilemap, set attr to 0
-				fprintf(console, "\0338;1PSELECT AN APP\n\n"); //Menu header.
+				fprintf(console, "\0338;1PArduino edition\n\n"); //Menu header.
 				selected=-1;
 			}
 		}
@@ -532,6 +532,17 @@ extern uint32_t *irq_stack_ptr;
 #define IRQ_STACK_SIZE (16*1024)
 
 void __wrap__exit() {}
+
+void pinMode(pin_size_t pin, PinMode mode) {
+}
+
+void digitalWrite(pin_size_t pin, PinStatus value) {
+	if (value) {
+		MISC_REG(MISC_LED_REG) |= 1 << pin;
+	} else {
+		MISC_REG(MISC_LED_REG) &= ~(1 << pin);
+	}
+}
 
 int main() {
 	syscall_reinit();
