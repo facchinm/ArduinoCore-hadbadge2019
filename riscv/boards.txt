@@ -1,0 +1,24 @@
+##############################################################
+
+hadbadge2019.name=Hackaday badge 2019
+hadbadge2019.build.core=arduino
+hadbadge2019.build.crossprefix=riscv64-unknown-elf-
+hadbadge2019.build.compiler_path=/run/media/martino/work/ecp5-toolchain-linux_x86_64-v1.6.2/bin/
+
+hadbadge2019.build.variant=hadbadge2019
+hadbadge2019.build.mcu=rv32imac
+hadbadge2019.build.extra_flags=
+hadbadge2019.build.architecture=rv32imac
+hadbadge2019.build.board=HADBADGE2019
+hadbadge2019.vid.0=0x8087
+hadbadge2019.pid.0=0x101f
+
+hadbadge2019.upload.via_ssh=true
+hadbadge2019.upload.tool=openocd
+hadbadge2019.upload.config=-f interface/cmsis-dap.cfg -f target/stm32f4x.cfg
+hadbadge2019.upload.protocol=sam-ba
+hadbadge2019.upload.maximum_size=1048576
+hadbadge2019.upload.use_1200bps_touch=false
+hadbadge2019.upload.wait_for_upload_port=false
+hadbadge2019.upload.native_usb=false
+
